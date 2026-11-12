@@ -1,0 +1,82 @@
+{
+  "name": "browserbase-effect",
+  "version": "0.1.0",
+  "description": "Effect-native TypeScript SDK for the Browserbase API, built on @distilled.cloud/core.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "bun": "./src/index.ts",
+      "default": "./lib/index.js"
+    },
+    "./Category": {
+      "types": "./lib/category.d.ts",
+      "bun": "./src/category.ts",
+      "default": "./lib/category.js"
+    },
+    "./Credentials": {
+      "types": "./lib/credentials.d.ts",
+      "bun": "./src/credentials.ts",
+      "default": "./lib/credentials.js"
+    },
+    "./Errors": {
+      "types": "./lib/errors.d.ts",
+      "bun": "./src/errors.ts",
+      "default": "./lib/errors.js"
+    },
+    "./Operations": {
+      "types": "./lib/operations.d.ts",
+      "bun": "./src/operations.ts",
+      "default": "./lib/operations.js"
+    },
+    "./Pagination": {
+      "types": "./lib/pagination.d.ts",
+      "bun": "./src/pagination.ts",
+      "default": "./lib/pagination.js"
+    },
+    "./Protocol": {
+      "types": "./lib/protocol.d.ts",
+      "bun": "./src/protocol.ts",
+      "default": "./lib/protocol.js"
+    },
+    "./Retry": {
+      "types": "./lib/retry.d.ts",
+      "bun": "./src/retry.ts",
+      "default": "./lib/retry.js"
+    },
+    "./Traits": {
+      "types": "./lib/traits.d.ts",
+      "bun": "./src/traits.ts",
+      "default": "./lib/traits.js"
+    }
+  },
+  "scripts": {
+    "generate": "node scripts/generate.ts && prettier --write src/services/browserbase.ts --log-level warn",
+    "specs:update": "curl -sSfL https://docs.browserbase.com/reference/api/openapi.v1.yaml -o specs/openapi.v1.yaml",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "example": "node examples/sessions.ts"
+  },
+  "dependencies": {
+    "@distilled.cloud/core": "1.0.0-rc.19"
+  },
+  "peerDependencies": {
+    "effect": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "effect": "^4.1.4",
+    "prettier": "^3.6.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "yaml": "^2.8.1"
+  },
+  "packageManager": "pnpm@10.33.3"
+}
